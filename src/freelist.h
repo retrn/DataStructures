@@ -3,11 +3,10 @@
 
 #include "types.h"
 
-typedef struct freelist {
-  u64 size;
-} freelist;
+typedef void *freelist;
 
-u8 freelist_create(u64 size, freelist **fl);
-u64 freelis_allocate(u64 size, freelist *freelist);
+u8 freelist_create(u64 size, freelist *const fl);
+void *freelist_allocate(u64 size, freelist freelist);
+void freelist_delete(freelist freelist);
 
 #endif
